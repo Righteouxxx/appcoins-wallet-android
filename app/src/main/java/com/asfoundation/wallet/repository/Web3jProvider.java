@@ -3,7 +3,6 @@ package com.asfoundation.wallet.repository;
 import com.asfoundation.wallet.entity.NetworkInfo;
 import okhttp3.OkHttpClient;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.Web3jFactory;
 import org.web3j.protocol.http.HttpService;
 
 /**
@@ -23,7 +22,7 @@ public class Web3jProvider {
   }
 
   private void buildWeb3jClient(NetworkInfo defaultNetwork) {
-    web3j = Web3jFactory.build(new HttpService(defaultNetwork.rpcServerUrl, httpClient, false));
+    web3j = Web3j.build(new HttpService(defaultNetwork.rpcServerUrl, httpClient, false));
   }
 
   public Web3j getDefault() {
@@ -31,6 +30,6 @@ public class Web3jProvider {
   }
 
   public Web3j get() {
-    return Web3jFactory.build(new HttpService(networkInfo.rpcServerUrl, httpClient, false));
+    return Web3j.build(new HttpService(networkInfo.rpcServerUrl, httpClient, false));
   }
 }

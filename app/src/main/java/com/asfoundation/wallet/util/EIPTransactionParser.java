@@ -9,8 +9,9 @@ import io.reactivex.Single;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
+
+import org.bouncycastle.util.encoders.Hex;
 import org.kethereum.erc681.ERC681;
-import org.spongycastle.util.encoders.Hex;
 
 public class EIPTransactionParser {
   private final DefaultTokenProvider defaultTokenProvider;

@@ -12,7 +12,6 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
-import org.spongycastle.util.encoders.Hex;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.ECKeyPair;
 import org.web3j.crypto.RawTransaction;
@@ -20,6 +19,7 @@ import org.web3j.crypto.TransactionEncoder;
 import org.web3j.crypto.WalletFile;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.tx.ChainId;
+import org.web3j.utils.Numeric;
 
 import static org.web3j.crypto.Wallet.create;
 
@@ -100,7 +100,7 @@ public class Web3jKeystoreAccountService implements AccountKeystoreService {
       } else {
         transaction =
             RawTransaction.createTransaction(BigInteger.valueOf(nonce), gasPrice.toBigInteger(),
-                gasLimit.toBigInteger(), toAddress, amount.toBigInteger(), Hex.toHexString(data));
+                gasLimit.toBigInteger(), toAddress, amount.toBigInteger(), Numeric.toHexString(data));
       }
 
       Credentials credentials =
